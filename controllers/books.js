@@ -1,6 +1,17 @@
 const Books = require('../models/books');
+const jwt = require('jsonwebtoken');
 
 module.exports.getIndexBooks = (req, res) => {
+	jwt.verify(req.token, process.env.SECRETKEY, (error, authData) => {
+		if(error) {
+			res.sendStatus(403);
+		} else { 
+		res.json({
+			message: 'OK',
+			authData: authData
+		})
+		}
+	})
 }
 
 module.exports.postBooks = (req, res) => {
