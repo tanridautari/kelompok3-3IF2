@@ -90,3 +90,13 @@ module.exports.deleteBooks = (req, res) => {
 	})
 }
 
+module.exports.findAllBooks = (req, res) => {
+	Books
+	.findAll() 
+	.then((books) => {
+		res.json(books);
+	})
+	.catch((error) => {
+		console.log(error);
+	})
+}
