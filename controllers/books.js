@@ -100,3 +100,10 @@ module.exports.findAllBooks = (req, res) => {
 		console.log(error);
 	})
 }
+module.exports.findBooksId = (req, res) => {
+ Books
+  .findByPk(req.params.id)
+  .then(books => {
+   res.json(books);
+  })
+}
