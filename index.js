@@ -25,5 +25,5 @@ app.use('/buy', cartRouter);
 
 app.listen(3203, () => {
     console.log('server started');
-   		 sequelize.sync();
+   		 // sequelize.sync();
 });
