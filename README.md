@@ -8,16 +8,16 @@
 
 # Daftar API :
 ## API Admin
-* Create http://localhost:3203/books 
-* Update http://localhost:3203/books/id
-* Delete http://localhost:3203/books/id 
+* Create http://159.89.194.18:3203/books 
+* Update http://159.89.194.18:3203/books/id
+* Delete http://159.89.194.18:3203/books/id 
 
 ## API User
-* Detail buku By ID http://localhost:3203/books/find/id 
-* Membeli buku http://localhost:3203/buy/
-* Melihat Buku Baru http://localhost:3203/books/findNew
-* Melihat Semua Buku http://localhost:3203/books/
+* Detail buku By ID http://159.89.194.18:3203/books/find/id 
+* Membeli buku http://159.89.194.18:3203/buy/
+* Melihat Buku Baru http://159.89.194.18:3203/books/findNew
+* Melihat Semua Buku http://159.89.194.18:3203/books/
 
 ## API Login dan Register
-* Login http://localhost:3203/user/login
-* Register http://localhost:3203/user/register
+* Login http://159.89.194.18:3203/user/login
+* Register http://159.89.194.18:3203/user/register
