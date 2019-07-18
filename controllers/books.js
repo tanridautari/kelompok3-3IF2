@@ -100,10 +100,23 @@ module.exports.findAllBooks = (req, res) => {
 		console.log(error);
 	})
 }
+
 module.exports.findBooksId = (req, res) => {
  Books
   .findByPk(req.params.id)
   .then(books => {
    res.json(books);
   })
+}
+
+module.exports.findNewBooks = (req, res) => {
+	Books
+	.findAll({ limit : 1,
+		where : {
+		},
+	order: [ [ 'createdAt', 'DESC' ]]
+	})
+	.then(books => {
+		res.json(books);
+	})
 }

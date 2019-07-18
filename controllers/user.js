@@ -8,10 +8,9 @@ const User = require('../models/User');
 module.exports.postRegister = (req, res) => {
 	var salt = bcrypt.genSaltSync(10);
 	var hash = bcrypt.hashSync(req.body.password, salt);
-	
 	User	
 		.findOrCreate({
-			where: { email: req.body.email},
+			where: { username: req.body.username},
 			defaults: {
 				username: req.body.username,
 				email: req.body.email,
@@ -30,7 +29,7 @@ module.exports.postRegister = (req, res) => {
 module.exports.postLogin = (req, res) => {
 	User
 		.findOne({
-			where: { email: req.body.email}
+			where: {username: req.body.username}
 		})
 		.then((user) => {
 			if (!user) {
@@ -42,7 +41,7 @@ module.exports.postLogin = (req, res) => {
 				};
 				
 				if (isMatch) {
-					jwt.sign({ id: user.get('id')}, process.env.SECRETKEY, (error, token) => {
+					jwt.sign({ id: user.get('id'), roles: user.get('roles')}, process.env.SECRETKEY, (error, token) => {
 						res.json({token: token});
 					})
 				} else {
